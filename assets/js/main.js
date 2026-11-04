@@ -1,11 +1,11 @@
 /**
- * CV & PORTFOLIO WAHYU ARDIAN - EXECUTIVE CREATIVE STUDIO ENGINE
- * High-End Interactive System: Ambient Dynamic Particle Canvas, Studio Palette Morphing, Lightbox & HUD
+ * CV & PORTOFOLIO WAHYU ARDIAN - ABSTRACT NOIR & DEEP BLUE ENGINE
+ * Generative Fluid Wave Ribbons, Interactive Geometric Shards, Deep Blue Hue Tuner
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initAmbientCanvas();
-  initStudioPalette();
+  initAbstractCanvas();
+  initHueTuner();
   initLiveClock();
   initThemeToggle();
   initMobileNav();
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ========================================================
-   1. AMBIENT NEURAL CONSTELLATION & PARTICLE MESH CANVAS
+   1. GENERATIVE ABSTRACT FLUID SINE WAVES & SHARDS CANVAS
    ======================================================== */
-function initAmbientCanvas() {
-  const canvas = document.getElementById('ambient-canvas');
+function initAbstractCanvas() {
+  const canvas = document.getElementById('abstract-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
@@ -31,100 +31,147 @@ function initAmbientCanvas() {
     height = canvas.height = window.innerHeight;
   });
 
-  // Calculate particle count dynamically based on screen size
-  const particleCount = Math.min(Math.floor((width * height) / 16000), 70);
-  const particles = [];
+  let mouseX = width / 2;
+  let mouseY = height / 2;
+  let targetMouseX = mouseX;
+  let targetMouseY = mouseY;
 
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
+  window.addEventListener('mousemove', (e) => {
+    targetMouseX = e.clientX;
+    targetMouseY = e.clientY;
+  });
+
+  // Abstract Floating Geometric Shards
+  const shardCount = Math.min(Math.floor(width / 50), 30);
+  const shards = [];
+
+  for (let i = 0; i < shardCount; i++) {
+    shards.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.7,
-      vy: (Math.random() - 0.5) * 0.7,
-      radius: Math.random() * 2 + 1.2,
-      phase: Math.random() * Math.PI * 2,
-      pulseSpeed: Math.random() * 0.03 + 0.01
+      size: Math.random() * 24 + 10,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.015,
+      opacity: Math.random() * 0.35 + 0.15,
+      sides: Math.random() > 0.5 ? 4 : 3 // Rhombus or Triangle shards
     });
   }
 
-  let mouseX = width / 2;
-  let mouseY = height / 2;
-  let isMouseOver = false;
+  // Draw an abstract geometric shard
+  function drawShard(ctx, shard, accentColor) {
+    ctx.save();
+    ctx.translate(shard.x, shard.y);
+    ctx.rotate(shard.rotation);
+    ctx.beginPath();
 
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    isMouseOver = true;
-  });
+    if (shard.sides === 3) {
+      // Abstract Triangle Shard
+      ctx.moveTo(0, -shard.size * 0.8);
+      ctx.lineTo(shard.size * 0.7, shard.size * 0.6);
+      ctx.lineTo(-shard.size * 0.7, shard.size * 0.6);
+    } else {
+      // Abstract Diamond / Rhombus Shard
+      ctx.moveTo(0, -shard.size);
+      ctx.lineTo(shard.size * 0.6, 0);
+      ctx.lineTo(0, shard.size);
+      ctx.lineTo(-shard.size * 0.6, 0);
+    }
 
-  window.addEventListener('mouseleave', () => {
-    isMouseOver = false;
-  });
+    ctx.closePath();
+    ctx.strokeStyle = accentColor;
+    ctx.globalAlpha = shard.opacity;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // Subtle inner glow
+    ctx.fillStyle = 'rgba(30, 58, 138, 0.08)';
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  // Multi-layered Fluid Wave Ribbons
+  let waveTick = 0;
+
+  function drawFluidRibbons(ctx, accentColor, isDark) {
+    waveTick += 0.012;
+
+    // Smooth inertia mouse tracking
+    mouseX += (targetMouseX - mouseX) * 0.05;
+    mouseY += (targetMouseY - mouseY) * 0.05;
+
+    const mouseRatioY = (mouseY / height - 0.5) * 80;
+    const ribbonLayers = [
+      { amp: 65, freq: 0.002, speed: 0.8, yOffset: height * 0.28 + mouseRatioY, alpha: isDark ? 0.35 : 0.2, width: 2 },
+      { amp: 95, freq: 0.0015, speed: 1.1, yOffset: height * 0.52 - mouseRatioY * 0.7, alpha: isDark ? 0.45 : 0.25, width: 2.5 },
+      { amp: 75, freq: 0.0022, speed: 0.6, yOffset: height * 0.78 + mouseRatioY * 0.5, alpha: isDark ? 0.3 : 0.18, width: 1.8 }
+    ];
+
+    ribbonLayers.forEach((layer, idx) => {
+      ctx.save();
+      ctx.beginPath();
+
+      const step = 20;
+      for (let x = 0; x <= width + step; x += step) {
+        const y = layer.yOffset +
+          Math.sin(x * layer.freq + waveTick * layer.speed) * layer.amp +
+          Math.cos(x * layer.freq * 0.6 + waveTick * 0.5) * (layer.amp * 0.4);
+
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+
+      ctx.strokeStyle = accentColor;
+      ctx.globalAlpha = layer.alpha;
+      ctx.lineWidth = layer.width;
+      ctx.shadowBlur = isDark ? 18 : 8;
+      ctx.shadowColor = accentColor;
+      ctx.stroke();
+
+      // Second harmonic shadow wave for abstract 3D ribbon depth
+      ctx.beginPath();
+      for (let x = 0; x <= width + step; x += step) {
+        const y2 = layer.yOffset + 18 +
+          Math.sin(x * layer.freq + waveTick * layer.speed + 0.3) * (layer.amp * 0.95);
+        if (x === 0) ctx.moveTo(x, y2);
+        else ctx.lineTo(x, y2);
+      }
+      ctx.strokeStyle = 'rgba(15, 23, 42, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = layer.alpha * 0.6;
+      ctx.stroke();
+
+      ctx.restore();
+    });
+  }
 
   function render() {
     ctx.clearRect(0, 0, width, height);
 
-    // Read active accent color from CSS variables
-    const activeAccent = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#6366f1';
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const activeCobalt = getComputedStyle(document.documentElement).getPropertyValue('--c-electric-blue').trim() || '#2563eb';
 
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
+    // 1. Render Fluid Waves
+    drawFluidRibbons(ctx, activeCobalt, isDark);
 
-      p.x += p.vx;
-      p.y += p.vy;
+    // 2. Render Floating Shards
+    for (let i = 0; i < shards.length; i++) {
+      const s = shards[i];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.rotation += s.rotSpeed;
 
-      // Screen edge bounce / wrap
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
+      if (s.x < -40) s.x = width + 30;
+      if (s.x > width + 40) s.x = -30;
+      if (s.y < -40) s.y = height + 30;
+      if (s.y > height + 40) s.y = -30;
 
-      // Mouse interactive gentle gravity & repel
-      if (isMouseOver) {
-        const dx = mouseX - p.x;
-        const dy = mouseY - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 160) {
-          const force = (160 - dist) / 160;
-          p.x -= (dx / dist) * force * 1.8;
-          p.y -= (dy / dist) * force * 1.8;
-        }
-      }
-
-      // Draw glowing particle node
-      p.phase += p.pulseSpeed;
-      const currentRadius = p.radius + Math.sin(p.phase) * 0.6;
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, Math.max(currentRadius, 0.6), 0, Math.PI * 2);
-      ctx.fillStyle = activeAccent;
-      ctx.shadowBlur = isDark ? 12 : 6;
-      ctx.shadowColor = activeAccent;
-      ctx.globalAlpha = isDark ? 0.65 : 0.45;
-      ctx.fill();
-      ctx.restore();
-
-      // Connect adjacent particles with hair-thin constellation lines
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const cdx = p.x - p2.x;
-        const cdy = p.y - p2.y;
-        const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
-
-        if (cdist < 135) {
-          const alpha = (1 - cdist / 135) * (isDark ? 0.22 : 0.15);
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = activeAccent;
-          ctx.globalAlpha = alpha;
-          ctx.lineWidth = 0.85;
-          ctx.stroke();
-          ctx.globalAlpha = 1;
-        }
-      }
+      drawShard(ctx, s, activeCobalt);
     }
 
     requestAnimationFrame(render);
@@ -134,47 +181,47 @@ function initAmbientCanvas() {
 }
 
 /* ========================================================
-   2. STUDIO ACCENT PALETTE MORPHING
+   2. ABSTRACT DEEP BLUE & NOIR HUE TUNER
    ======================================================== */
-function initStudioPalette() {
-  const dots = document.querySelectorAll('.palette-dot');
+function initHueTuner() {
+  const dots = document.querySelectorAll('.tuner-dot');
   if (!dots.length) return;
 
-  const studioPalettes = {
-    indigo: {
-      accent: '#6366f1',
-      secondary: '#06b6d4',
-      glow: 'rgba(99, 102, 241, 0.4)',
-      gradient: 'linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #06b6d4 100%)',
-      name: 'Indigo Velvet // Executive Modern'
+  const abstractThemes = {
+    cobalt: {
+      primary: '#2563eb',
+      royal: '#1e40af',
+      highlight: '#38bdf8',
+      grad: 'linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0284c7 100%)',
+      name: 'Midnight Cobalt & Pitch Black'
     },
-    cyan: {
-      accent: '#06b6d4',
-      secondary: '#3b82f6',
-      glow: 'rgba(6, 182, 212, 0.4)',
-      gradient: 'linear-gradient(135deg, #06b6d4 0%, #0284c7 50%, #6366f1 100%)',
-      name: 'Cyber Cyan // Precision Tech'
+    abyssal: {
+      primary: '#0284c7',
+      royal: '#0369a1',
+      highlight: '#06b6d4',
+      grad: 'linear-gradient(135deg, #075985 0%, #0284c7 50%, #06b6d4 100%)',
+      name: 'Abyssal Deep Cyan & Noir'
     },
-    emerald: {
-      accent: '#10b981',
-      secondary: '#06b6d4',
-      glow: 'rgba(16, 185, 129, 0.4)',
-      gradient: 'linear-gradient(135deg, #10b981 0%, #059669 50%, #3b82f6 100%)',
-      name: 'Emerald Jade // Creative Pulse'
+    sapphire: {
+      primary: '#1d4ed8',
+      royal: '#1e3a8a',
+      highlight: '#60a5fa',
+      grad: 'linear-gradient(135deg, #172554 0%, #1d4ed8 50%, #3b82f6 100%)',
+      name: 'Deep Sapphire & Space Void'
     },
-    amber: {
-      accent: '#f59e0b',
-      secondary: '#ef4444',
-      glow: 'rgba(245, 158, 11, 0.4)',
-      gradient: 'linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #ef4444 100%)',
-      name: 'Amber Glow // Warm Luxury'
+    electric: {
+      primary: '#3b82f6',
+      royal: '#2563eb',
+      highlight: '#93c5fd',
+      grad: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)',
+      name: 'Electric Navy & Obsidian'
     },
-    rose: {
-      accent: '#f43f5e',
-      secondary: '#a855f7',
-      glow: 'rgba(244, 63, 94, 0.4)',
-      gradient: 'linear-gradient(135deg, #f43f5e 0%, #d946ef 50%, #8b5cf6 100%)',
-      name: 'Rose Sunset // Editorial Flair'
+    laser: {
+      primary: '#0052cc',
+      royal: '#0c1a38',
+      highlight: '#00c3ff',
+      grad: 'linear-gradient(135deg, #091a44 0%, #0052cc 50%, #00c3ff 100%)',
+      name: 'Neon Laser Blue & Pitch Black'
     }
   };
 
@@ -183,22 +230,22 @@ function initStudioPalette() {
       dots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
 
-      const key = dot.getAttribute('data-palette') || 'indigo';
-      const p = studioPalettes[key] || studioPalettes.indigo;
+      const key = dot.getAttribute('data-tuner') || 'cobalt';
+      const t = abstractThemes[key] || abstractThemes.cobalt;
 
       const root = document.documentElement;
-      root.style.setProperty('--accent-color', p.accent);
-      root.style.setProperty('--accent-secondary', p.secondary);
-      root.style.setProperty('--accent-glow', p.glow);
-      root.style.setProperty('--accent-gradient', p.gradient);
+      root.style.setProperty('--c-electric-blue', t.primary);
+      root.style.setProperty('--c-royal-cobalt', t.royal);
+      root.style.setProperty('--c-sky-highlight', t.highlight);
+      root.style.setProperty('--grad-noir-blue', t.grad);
 
-      showStudioToast(`🎨 Tema Studio diubah ke ${p.name}`);
+      showAbstractToast(`🌊 Perpaduan Warna: ${t.name}`);
     });
   });
 }
 
 /* ========================================================
-   3. STUDIO LIVE HUD CLOCK (WIB)
+   3. ABSTRACT LIVE HUD CLOCK (WIB)
    ======================================================== */
 function initLiveClock() {
   const clockEl = document.getElementById('live-clock');
@@ -217,14 +264,14 @@ function initLiveClock() {
 }
 
 /* ========================================================
-   4. THEME TOGGLE (Dark Obsidian / Light Executive)
+   4. THEME TOGGLE (Dark Noir / Executive Light)
    ======================================================== */
 function initThemeToggle() {
   const toggleBtn = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   if (!toggleBtn) return;
 
-  const savedTheme = localStorage.getItem('studio-theme') || 'dark';
+  const savedTheme = localStorage.getItem('abstract-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme, themeIcon);
 
@@ -232,9 +279,9 @@ function initThemeToggle() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', nextTheme);
-    localStorage.setItem('studio-theme', nextTheme);
+    localStorage.setItem('abstract-theme', nextTheme);
     updateThemeIcon(nextTheme, themeIcon);
-    showStudioToast(nextTheme === 'dark' ? '🌙 Mode Obsidian Studio Aktif' : '☀️ Mode Executive Light Aktif');
+    showAbstractToast(nextTheme === 'dark' ? '🌌 Mode Hitam Biru Gelap Aktif' : '❄️ Mode Executive Light Aktif');
   });
 }
 
@@ -442,13 +489,13 @@ function initStatsCounter() {
    ======================================================== */
 function copyToClipboard(text, label = 'Data') {
   navigator.clipboard.writeText(text).then(() => {
-    showStudioToast(`📋 ${label} berhasil disalin ke clipboard!`);
+    showAbstractToast(`📋 ${label} berhasil disalin!`);
   }).catch(() => {
-    showStudioToast(`Gagal menyalin ${label}`);
+    showAbstractToast(`Gagal menyalin ${label}`);
   });
 }
 
-function showStudioToast(msg) {
+function showAbstractToast(msg) {
   let toast = document.getElementById('toast');
   if (!toast) {
     toast = document.createElement('div');
@@ -457,7 +504,7 @@ function showStudioToast(msg) {
     document.body.appendChild(toast);
   }
 
-  toast.innerHTML = `<i class="fas fa-check-circle" style="color: var(--accent-color);"></i> <span>${msg}</span>`;
+  toast.innerHTML = `<i class="fas fa-circle-check" style="color: var(--c-sky-highlight);"></i> <span>${msg}</span>`;
   toast.classList.add('show');
 
   clearTimeout(window.__toastTimer);
@@ -473,7 +520,7 @@ function printResume() {
   window.print();
 }
 
-// Expose globals for inline onclick handlers
+// Global expose
 window.copyToClipboard = copyToClipboard;
 window.printResume = printResume;
-window.showStudioToast = showStudioToast;
+window.showAbstractToast = showAbstractToast;

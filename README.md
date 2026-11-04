@@ -1,35 +1,32 @@
-# CV & Website Portofolio - Wahyu Ardian (Executive Creative Studio ✨)
+# CV & Website Portofolio - Wahyu Ardian (Abstract Noir & Deep Blue 🌌)
 
-Website CV & Portofolio profesional resmi untuk **Wahyu Ardian**, dirancang khusus dengan standar **Awwwards / Executive Design Agency** yang modern, berkelas tinggi, dan dilengkapi latar belakang interaktif (ambient dynamic mesh & neural particle constellation).
+Website CV & Portofolio interaktif resmi untuk **Wahyu Ardian**, dirancang khusus dengan **Style Layout Abstrak** dan **Latar Belakang Abstrak Perpaduan Hitam dan Biru Gelap** (Deep Obsidian `#030508` & Midnight Cobalt `#0f172a`, `#1e3a8a`, `#2563eb`).
 
 ---
 
-## 🌟 Fitur Unggulan Desain Profesional
-1. **Captivating Background System**:
-   - **Interactive Neural Particle Canvas (`#ambient-canvas`)**: Partikel konstelasi yang berinteraksi halus dengan kursor mouse.
-   - **Luminous Mesh Fluid Gradient Orbs**: Bola cahaya aurora mengapung dinamis menciptakan nuansa mewah dan berkedalaman.
-   - **Precision Tech Grid**: Pola garis tipis futuristik standar studio desain internasional.
-2. **Executive Studio Palette Switcher**:
-   - Pengunjung dapat mengubah palet aksen studio secara instan:
-     - 🟣 **Indigo Velvet**: Modern Executive (Default)
-     - 🔵 **Cyber Cyan**: Digital Precision
-     - 🟢 **Emerald Jade**: Creative Pulse
-     - 🟠 **Amber Glow**: Warm Luxury
-     - 🔴 **Rose Sunset**: Editorial Flair
-3. **Executive Portrait Chassis**:
-   - Foto profil asli Wahyu Ardian (`assets/images/profil.png`) dibingkai dengan kartu kaca refraktif bergradien elegan, dilengkapi lencana verifikasi dan rekor pengalaman industri.
+## 🌟 Fitur Unggulan Desain Abstrak Hitam & Biru Gelap
+1. **Latar Belakang Abstrak Dinamis (Generative Fluid Ribbons & Floating Shards)**:
+   - **Kanvas Gelombang Fluida Multi-layer (`#abstract-canvas`)**: Pita gelombang sinus fluida warna biru tua dan kobalt yang berayun halus dengan respons interaktif kursor mouse.
+   - **Pecahan Geometris Abstrak (Floating Shards)**: Partikel poligon melayang dengan rotasi halus dan pencahayaan aksen biru es.
+   - **Deep Blue Ambient Mesh & Slicing Lines**: Tiga bola cahaya mesh biru gelap dipadukan dengan tekstur garis potong diagonal 135°.
+2. **Style Layout Abstrak & Asimetris**:
+   - Sudut kartu asimetris artistik (`border-radius: 32px 8px 32px 8px`) yang mencerminkan eksplorasi desain grafis modern.
+   - Pelat latar belakang bersudut miring (*slanted geometric backing plate*) pada frame foto profil Wahyu Ardian.
+   - Ticker marquee kontinu dengan pemisah garis miring ganda (*slanted wedges* `╱╱`).
+3. **Deep Blue & Noir Hue Tuner (Kustomisasi Nuansa Biru Gelap)**:
+   - 🔵 **Midnight Cobalt**: Perpaduan Hitam Pekat & Biru Royal (Default)
+   - 🌊 **Abyssal Cyan**: Kedalaman Hitam & Biru Cyan Samudra
+   - 🔷 **Deep Sapphire**: Safir Gelap & Ruang Angkasa Obsidian
+   - ⚡ **Electric Navy**: Biru Navy Elektrik dengan kontras tinggi
+   - 💎 **Neon Laser Blue**: Garis Laser Neon Biru Menyala di atas Kanvas Hitam
 4. **Stasiun Pindai QR Code Portofolio Interaktif**:
-   - Menampilkan QR Code asli (`assets/images/qr-portfolio.png`) dengan animasi pemindaian laser modern dan panduan langkah cepat agar calon klien atau perekrut dapat langsung memindai melalui kamera ponsel.
-5. **Creative Arsenal & Software Toolkit**:
-   - Tingkat keahlian software grafis: Adobe Photoshop, Adobe Illustrator, CorelDRAW, Premiere Pro & CapCut, Figma & Canva Pro, serta Event Photography.
-6. **Milestone Karir & Pendidikan Terstruktur**:
-   - Rekam jejak pengalaman kerja (Porsenijar PGRI 2026, Wisuda UNILAK, CMB MEDIA, Family Printing) dan jalur pendidikan formal (S1 Bisnis Digital UNILAK, ICC D1, hingga sekolah menengah).
-7. **Matriks Keahlian Lengkap**:
-   - Hard Skills teknis desain dan Soft Skills karakter kepemimpinan, kerja sama tim, dan spesialisasi disiplin *Exp Lane*.
-8. **Dual Mode Tampilan**:
-   - Mode Gelap (Obsidian Studio) & Mode Terang (Executive Light).
-9. **Cetak Resume PDF A4 Rapi**:
-   - Tombol "Cetak PDF" diformat khusus untuk menghasilkan lembar CV A4 bersih, resmi, dan siap dikirim ke instansi atau perusahaan.
+   - Menampilkan QR Code asli (`assets/images/qr-portfolio.png`) dengan laser pemindai biru elektrik agar pengunjung bisa langsung scan lewat smartphone.
+5. **Toolkit Desain Grafis & Metrik Pengalaman**:
+   - Kemahiran Adobe Photoshop, Adobe Illustrator, CorelDRAW, Premiere Pro/CapCut, Figma/Canva, dan Event Photography.
+6. **Milestone Karir & Riwayat Pendidikan Lengkap**:
+   - Porsenijar PGRI Prov Riau 2026, Wisuda UNILAK, CMB MEDIA (2022-2024), Family Printing (2021-2022), S1 Bisnis Digital UNILAK, ICC D1.
+7. **Cetak PDF Resume A4 Rapi**:
+   - Tombol "Cetak PDF" otomatis menyembunyikan elemen visual abstrak dan menghasilkan format CV A4 resmi standar HRD.
 
 ---
 
@@ -41,9 +38,9 @@ CV WAHYU ARDIAN/
 ├── README.md               <-- Dokumentasi proyek
 └── assets/
     ├── css/
-    │   └── style.css       <-- Sistem styling profesional & format cetak A4
+    │   └── style.css       <-- Styling layout abstrak hitam biru gelap & print A4
     ├── js/
-    │   └── main.js         <-- Canvas partikel, switcher palet, HUD clock, modal
+    │   └── main.js         <-- Kanvas gelombang fluida, shards, hue tuner, modal
     └── images/
         ├── profil.png      <-- Foto profil asli Wahyu Ardian
         └── qr-portfolio.png <-- QR Code portofolio asli
@@ -64,6 +61,5 @@ Di folder ini sudah disediakan file otomatis **`push-ke-github.bat`**:
 1. Buka [vercel.com](https://vercel.com) dan login dengan akun GitHub Anda.
 2. Klik tombol **"Add New..."** lalu pilih **"Project"**.
 3. Pilih repository **`CV-Wahyu-Ardian`**, lalu klik **"Import"**.
-4. Biarkan konfigurasi default (Framework Preset: *Other*).
-5. Klik **"Deploy"**.
-6. Dalam hitungan detik, website CV & Portofolio Wahyu Ardian sudah online dengan domain aktif! 🎉
+4. Klik **"Deploy"**.
+5. Dalam hitungan detik, website CV & Portofolio Wahyu Ardian sudah online secara global! 🎉
