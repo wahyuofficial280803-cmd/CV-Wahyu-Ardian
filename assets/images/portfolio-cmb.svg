@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cmbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#311042" />
+      <stop offset="50%" stop-color="#4c1d95" />
+      <stop offset="100%" stop-color="#c026d3" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#cmbGrad)" />
+  <circle cx="500" cy="300" r="160" fill="#f43f5e" opacity="0.15" />
+
+  <!-- Media Visual Vector -->
+  <g transform="translate(300, 150) scale(1.2)">
+    <rect x="-70" y="-45" width="140" height="90" rx="14" fill="#1e1b4b" stroke="#e879f9" stroke-width="3" />
+    <polygon points="-15,-20 25,0 -15,20" fill="#f43f5e" />
+    <!-- Audio waves / Timeline -->
+    <line x1="-50" y1="30" x2="-30" y2="30" stroke="#a855f7" stroke-width="4" stroke-linecap="round" />
+    <line x1="-20" y1="30" x2="10" y2="30" stroke="#f472b6" stroke-width="4" stroke-linecap="round" />
+    <line x1="20" y1="30" x2="50" y2="30" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <rect x="50" y="270" width="160" height="30" rx="15" fill="#a21caf" />
+  <text x="130" y="290" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">VISUAL & MEDIA EDITING</text>
+
+  <text x="50" y="335" font-family="system-ui, sans-serif" font-size="24" font-weight="800" fill="#ffffff">CMB Media Digital Campaigns</text>
+  <text x="50" y="365" font-family="system-ui, sans-serif" font-size="14" fill="#e9d5ff">Editing Konten Kreatif, Poster Promo, & Video Visual Media (2022-2024)</text>
+</svg>

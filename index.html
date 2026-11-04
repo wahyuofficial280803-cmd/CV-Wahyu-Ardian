@@ -3,63 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wahyu Ardian | Portfolio & CV - Graphic Designer & Visual Editor</title>
-  <meta name="description" content="Website CV & Portofolio Resmi Wahyu Ardian - Graphic Designer, Visual Editor, Photographer & Mahasiswa Bisnis Digital Universitas Lancang Kuning.">
-  <meta name="keywords" content="Wahyu Ardian, CV Wahyu Ardian, Portofolio Graphic Design, Visual Editor, Kampar Riau, Universitas Lancang Kuning">
+  <title>Wahyu Ardian | Professional Graphic Designer & Visual Editor</title>
+  <meta name="description" content="Website CV & Portofolio Profesional Wahyu Ardian - Graphic Designer, Visual Editor, Event Photographer & Mahasiswa Bisnis Digital Universitas Lancang Kuning.">
+  <meta name="keywords" content="Wahyu Ardian, Desain Grafis Riau, Visual Editor Kampar, Fotografer Wisuda UNILAK, Porsenijar PGRI 2026, Bisnis Digital UNILAK">
   <meta name="author" content="Wahyu Ardian">
 
-  <!-- Google Fonts -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%236366f1'/><text x='50' y='65' font-size='48' font-weight='800' font-family='sans-serif' text-anchor='middle' fill='white'>WA</text></svg>">
+
+  <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Custom CSS -->
+  <!-- Executive Studio CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- Ambient Glowing Orbs -->
-  <div class="bg-glow-orb-1"></div>
-  <div class="bg-glow-orb-2"></div>
-  <div class="bg-glow-orb-3"></div>
+  <!-- 1. Captivating Background System -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="ambient-glow-orb orb-1"></div>
+  <div class="ambient-glow-orb orb-2"></div>
+  <div class="ambient-glow-orb orb-3"></div>
+  <div class="tech-grid-overlay"></div>
 
-  <!-- Header / Navigation -->
+  <!-- 2. Studio Executive Top HUD -->
+  <aside class="studio-hud" aria-label="Status Studio">
+    <div class="container hud-container">
+      <div class="hud-item">
+        <span class="pulse-dot"></span>
+        <span style="font-weight: 700; color: #10b981;">// STATUS: TERSEDIA UNTUK PROYEK & KARIR</span>
+        <span style="color: var(--text-dim);">//</span>
+        <span>PT. BINA PITRI, KAMPAR, PROV. RIAU</span>
+      </div>
+      <div class="hud-item">
+        <span style="color: var(--accent-color);"><i class="fas fa-clock"></i></span>
+        <span id="live-clock">12:00:00 WIB</span>
+        <span style="color: var(--text-dim);">//</span>
+        <span style="color: #e2e8f0; font-weight: 600;">300 DPI // CMYK & RGB COLOR ACCURATE</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 3. Sticky Refractive Navbar -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="nav-brand">
-        <div class="brand-badge">WA</div>
-        <span>Wahyu Ardian</span>
+        <div class="brand-monogram">WA</div>
+        <div class="brand-details">
+          <span class="brand-name">Wahyu Ardian</span>
+          <span class="brand-title">CREATIVE STUDIO // VISUAL ALCHEMIST</span>
+        </div>
       </a>
 
-      <nav>
+      <nav aria-label="Navigasi Utama">
         <ul class="nav-links" id="nav-links">
-          <li><a href="#hero" class="nav-link active">Beranda</a></li>
-          <li><a href="#tentang" class="nav-link">Tentang</a></li>
+          <li><a href="#hero" class="nav-link active">Studio</a></li>
+          <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
+          <li><a href="#tentang" class="nav-link">Profil</a></li>
           <li><a href="#pengalaman" class="nav-link">Pengalaman</a></li>
           <li><a href="#pendidikan" class="nav-link">Pendidikan</a></li>
           <li><a href="#skills" class="nav-link">Keahlian</a></li>
-          <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+          <li><a href="#portofolio" class="nav-link">Portofolio & QR</a></li>
           <li><a href="#kontak" class="nav-link">Kontak</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <!-- Theme Toggle Button -->
-        <button class="btn-icon" id="theme-toggle" title="Ganti Tema (Dark / Light)" aria-label="Ganti Tema">
+        <!-- Theme Toggle -->
+        <button class="btn-icon" id="theme-toggle" title="Ganti Mode Tampilan (Dark / Light)" aria-label="Ganti Tema">
           <i class="fas fa-sun" id="theme-icon"></i>
         </button>
 
-        <!-- Print CV Button -->
-        <button class="btn btn-outline" onclick="printResume()" title="Cetak / Simpan CV PDF">
+        <!-- Print Resume PDF Button -->
+        <button class="btn btn-outline" onclick="printResume()" title="Cetak atau Simpan Resume Format Standar A4" style="padding: 0.55rem 1.15rem; font-size: 0.88rem;">
           <i class="fas fa-print"></i>
           <span>Cetak PDF</span>
         </button>
 
-        <!-- Mobile Menu Toggle -->
-        <button class="btn-icon mobile-toggle" id="mobile-toggle" aria-label="Menu Navigasi">
+        <!-- Mobile Toggle Button -->
+        <button class="btn-icon mobile-toggle" id="mobile-toggle" aria-label="Buka Menu Navigasi">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -67,70 +94,94 @@
   </header>
 
   <main>
-    <!-- 1. Hero Section -->
+    <!-- 4. Hero Section: Executive Introduction -->
     <section class="hero-section" id="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <div class="badge-status">
+            <div class="hero-badge-pill">
               <span class="pulse-dot"></span>
-              <span>Available for Creative & Design Projects</span>
+              <span>PROFESSIONAL GRAPHIC DESIGNER & VISUAL EDITOR</span>
             </div>
+
             <h1 class="hero-title">
-              Halo, Saya <span class="gradient-text">Wahyu Ardian</span>
+              Wahyu Ardian<br>
+              <span class="gradient-text">Visual Studio.</span>
             </h1>
-            <h2 class="hero-role">
-              Graphic Designer • Visual Editor • Digital Business Student
-            </h2>
-            <p class="hero-bio">
-              Saya adalah mahasiswa Universitas Lancang Kuning dengan keahlian mendalam di bidang 
-              <strong>Visual Editing</strong>, <strong>Desain Grafis</strong>, dan <strong>Fotografi Acara</strong>. 
-              Berpengalaman menghasilkan materi promosi kreatif, media cetak, serta dokumentasi visual bernilai tinggi.
+
+            <div class="hero-roles">
+              <span class="role-chip primary"><i class="fas fa-pen-nib"></i> Desain Grafis</span>
+              <span class="role-chip"><i class="fas fa-photo-film"></i> Visual Editor</span>
+              <span class="role-chip"><i class="fas fa-graduation-cap"></i> Bisnis Digital UNILAK '24</span>
+              <span class="role-chip"><i class="fas fa-camera"></i> Event Photographer</span>
+              <span class="role-chip"><i class="fas fa-shield-halved"></i> Exp Lane Specialist</span>
+            </div>
+
+            <p class="hero-summary">
+              Saya adalah mahasiswa <strong>Universitas Lancang Kuning</strong> jurusan <strong>Bisnis Digital</strong> (Angkatan 2024) dengan keahlian mendalam di bidang <strong>Editing Visual</strong> dan berpengalaman sebagai <strong>Desain Grafis profesional</strong>. Berdedikasi menghasilkan karya visual yang estetis, fungsional, dan berorientasi pada hasil bisnis nyata.
             </p>
 
+            <!-- Interactive Studio Accent Palette Switcher -->
+            <div class="studio-palette-box">
+              <span class="palette-label"><i class="fas fa-palette"></i> Pilih Warna Tema:</span>
+              <div class="palette-dots">
+                <button type="button" class="palette-dot active" data-palette="indigo" title="Indigo Velvet // Modern Executive" style="background: #6366f1;"></button>
+                <button type="button" class="palette-dot" data-palette="cyan" title="Cyber Cyan // Digital Precision" style="background: #06b6d4;"></button>
+                <button type="button" class="palette-dot" data-palette="emerald" title="Emerald Jade // Creative Pulse" style="background: #10b981;"></button>
+                <button type="button" class="palette-dot" data-palette="amber" title="Amber Glow // Warm Luxury" style="background: #f59e0b;"></button>
+                <button type="button" class="palette-dot" data-palette="rose" title="Rose Sunset // Editorial Flair" style="background: #f43f5e;"></button>
+              </div>
+            </div>
+
+            <!-- Call to Actions -->
             <div class="hero-cta">
-              <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20melihat%20website%20CV%20Anda%20dan%20tertarik%20untuk%20bekerjasama." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+              <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20melihat%20website%20CV%20Anda%20dan%20tertarik%20bekerja%20sama" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                <span>Hubungi via WhatsApp</span>
               </a>
-              <a href="mailto:Wahyuofficial280803@gmail.com" class="btn btn-primary">
-                <i class="fas fa-envelope"></i> Kirim Email
+
+              <a href="#portofolio" class="btn btn-primary">
+                <i class="fas fa-qrcode"></i>
+                <span>Lihat Portofolio & Scan QR</span>
               </a>
-              <a href="#portofolio" class="btn btn-outline">
-                <i class="fas fa-folder-open"></i> Galeri Karya
-              </a>
+
+              <button type="button" class="btn btn-outline" onclick="printResume()">
+                <i class="fas fa-file-pdf"></i>
+                <span>Simpan PDF CV</span>
+              </button>
             </div>
 
-            <!-- Social Media Quick Links -->
+            <!-- Social Links -->
             <div class="hero-socials">
-              <a href="https://www.instagram.com/wahyu_ardian28?exln=eHM0MzFoYnI4aWNo" target="_blank" rel="noopener noreferrer" class="social-pill ig" title="Instagram">
-                <i class="fab fa-instagram"></i>
-                <span>@wahyu_ardian28</span>
+              <a href="https://www.instagram.com/wahyu_ardian28?exln=eHM0MzFoYnI4aWNo" target="_blank" rel="noopener noreferrer" class="social-pill ig" title="Instagram Wahyu Ardian">
+                <i class="fab fa-instagram"></i> <span>@wahyu_ardian28</span>
               </a>
-              <a href="https://www.tiktok.com/@yuu15208?_r=1&_t=ZS-9B6CZ8DV4dQ" target="_blank" rel="noopener noreferrer" class="social-pill tt" title="TikTok">
-                <i class="fab fa-tiktok"></i>
-                <span>@yuu15208</span>
+              <a href="https://www.tiktok.com/@yuu15208?_r=1&_t=ZS-9B6CZ8DV4dQ" target="_blank" rel="noopener noreferrer" class="social-pill tt" title="TikTok @yuu15208">
+                <i class="fab fa-tiktok"></i> <span>@yuu15208</span>
               </a>
-              <a href="https://www.facebook.com/share/1SCBwb3WPF/" target="_blank" rel="noopener noreferrer" class="social-pill fb" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-                <span>Wahyu Ardian</span>
+              <a href="https://www.facebook.com/share/1SCBwb3WPF/" target="_blank" rel="noopener noreferrer" class="social-pill fb" title="Facebook Wahyu Ardian">
+                <i class="fab fa-facebook"></i> <span>Wahyu Ardian</span>
               </a>
             </div>
           </div>
 
+          <!-- Hero Visual: Executive Portrait Chassis -->
           <div class="hero-visual">
-            <div class="profile-card">
-              <div class="profile-img-wrap">
-                <!-- If profile.jpg is added in assets/images/ it loads, else falls back to profile-placeholder.svg -->
-                <img src="assets/images/profile.jpg" onerror="this.onerror=null; this.src='assets/images/profile-placeholder.svg';" alt="Foto Profil Wahyu Ardian" class="profile-img">
+            <div class="portrait-container">
+              <div class="accolade-badge-top">
+                <i class="fas fa-certificate" style="color: #facc15;"></i>
+                <span>VERIFIED CREATIVE DESIGNER</span>
               </div>
-              <div class="floating-badge">
-                <div class="badge-icon">
-                  <i class="fas fa-pen-nib"></i>
+
+              <div class="portrait-card">
+                <div class="portrait-photo-box">
+                  <img src="assets/images/profil.png" alt="Foto Wahyu Ardian" class="portrait-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80';">
                 </div>
-                <div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">Pengalaman Industri</div>
-                  <div style="color: var(--text-main); font-weight: 700;">Desain Grafis & Editing</div>
-                </div>
+              </div>
+
+              <div class="accolade-badge-bot">
+                <i class="fas fa-award" style="color: var(--accent-color);"></i>
+                <span>3+ TAHUN PENGALAMAN INDUSTRI</span>
               </div>
             </div>
           </div>
@@ -138,83 +189,215 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number gradient-text">3+</div>
-            <div class="stat-label">Tahun Pengalaman Desain & Visual</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number gradient-cyan">4+</div>
-            <div class="stat-label">Institusi, Media & Kepanitiaan</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number gradient-text">100+</div>
-            <div class="stat-label">Aset Grafis, Banner & Konten Digital</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number gradient-cyan">100%</div>
-            <div class="stat-label">Dedikasi & Kolaborasi Tim</div>
-          </div>
-        </div>
+    <!-- 5. Continuous Studio Marquee -->
+    <div class="marquee-bar">
+      <div class="marquee-track">
+        <div class="marquee-item"><span class="separator">✦</span> DESAIN GRAFIS KOMERSIAL</div>
+        <div class="marquee-item"><span class="separator">✦</span> VISUAL EDITING & RETOUCHING</div>
+        <div class="marquee-item"><span class="separator">✦</span> EVENT PHOTOGRAPHY // PORSENIJAR PGRI RIAU 2026</div>
+        <div class="marquee-item"><span class="separator">✦</span> BISNIS DIGITAL UNIVERSITAS LANCANG KUNING</div>
+        <div class="marquee-item"><span class="separator">✦</span> DIGITAL MARKETING & BRAND IDENTITY</div>
+        <div class="marquee-item"><span class="separator">✦</span> PERCETAKAN 300 DPI CMYK // FAMILY PRINTING & CMB MEDIA</div>
+        <div class="marquee-item"><span class="separator">✦</span> STRATEGIC DISCIPLINE // EXP LANE SPECIALIST</div>
+        <!-- Duplikasi untuk infinite marquee loop -->
+        <div class="marquee-item"><span class="separator">✦</span> DESAIN GRAFIS KOMERSIAL</div>
+        <div class="marquee-item"><span class="separator">✦</span> VISUAL EDITING & RETOUCHING</div>
+        <div class="marquee-item"><span class="separator">✦</span> EVENT PHOTOGRAPHY // PORSENIJAR PGRI RIAU 2026</div>
+        <div class="marquee-item"><span class="separator">✦</span> BISNIS DIGITAL UNIVERSITAS LANCANG KUNING</div>
+        <div class="marquee-item"><span class="separator">✦</span> DIGITAL MARKETING & BRAND IDENTITY</div>
+        <div class="marquee-item"><span class="separator">✦</span> PERCETAKAN 300 DPI CMYK // FAMILY PRINTING & CMB MEDIA</div>
+        <div class="marquee-item"><span class="separator">✦</span> STRATEGIC DISCIPLINE // EXP LANE SPECIALIST</div>
       </div>
-    </section>
+    </div>
 
-    <!-- 2. About Section -->
-    <section class="section" id="tentang">
+    <!-- 6. Creative Arsenal / Software Toolkit -->
+    <section class="section" id="toolkit">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Ringkasan Diri</span>
-          <h2 class="section-title">Tentang Saya</h2>
-          <p class="section-subtitle">Mengenal lebih dekat latar belakang, keahlian, dan komitmen profesional saya.</p>
+          <span class="section-tag"><i class="fas fa-toolbox"></i> Creative Arsenal</span>
+          <h2 class="section-title">Perangkat Lunak & Toolkit Desain</h2>
+          <p class="section-subtitle">Penguasaan mendalam atas berbagai software grafis dan fotografi standar industri untuk menghadirkan visual kelas atas.</p>
+        </div>
+
+        <div class="arsenal-grid">
+          <!-- Adobe Photoshop -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(49, 168, 255, 0.16); color: #31a8ff; border: 1px solid rgba(49, 168, 255, 0.3);">Ps</div>
+                <span class="arsenal-badge">Tingkat Mahir</span>
+              </div>
+              <h3 class="arsenal-title">Adobe Photoshop</h3>
+              <p class="arsenal-desc">Manipulasi foto visual, retouching gambar beresolusi tinggi, pembuatan mockup produk, color grading, dan compositing kompleks.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Adobe Illustrator -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(255, 154, 0, 0.16); color: #ff9a00; border: 1px solid rgba(255, 154, 0, 0.3);">Ai</div>
+                <span class="arsenal-badge">Tingkat Mahir</span>
+              </div>
+              <h3 class="arsenal-title">Adobe Illustrator</h3>
+              <p class="arsenal-desc">Perancangan logo vektor presisi, maskot ilustrasi, ikonografi digital, tipografi kreatif, dan materi visual skala tak terbatas.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- CorelDRAW -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(34, 197, 94, 0.16); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3);">Cd</div>
+                <span class="arsenal-badge">Spesialis Cetak</span>
+              </div>
+              <h3 class="arsenal-title">CorelDRAW Graphics</h3>
+              <p class="arsenal-desc">Standar industri percetakan untuk layout spanduk raksasa, baliho, kartu nama, brosur, separasi warna CMYK, dan persiapan file siap cetak.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <!-- Premiere Pro & CapCut -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(234, 88, 12, 0.16); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.3);"><i class="fas fa-video"></i></div>
+                <span class="arsenal-badge">Visual Motion</span>
+              </div>
+              <h3 class="arsenal-title">Premiere Pro & CapCut</h3>
+              <p class="arsenal-desc">Editing visual video dinamis untuk TikTok, Instagram Reels, dokumentasi acara resmi, transisi mulus, pacing audio, dan efek visual menarik.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 93%;"></div>
+            </div>
+          </div>
+
+          <!-- Canva & Figma -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(168, 85, 247, 0.16); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3);"><i class="fab fa-figma"></i></div>
+                <span class="arsenal-badge">Desain Cepat & UI</span>
+              </div>
+              <h3 class="arsenal-title">Canva & Figma Pro</h3>
+              <p class="arsenal-desc">Eksekusi cepat template media sosial, presentasi bisnis digital modern, prototyping visual, dan kolaborasi tim secara real-time.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Event Photography -->
+          <div class="arsenal-card">
+            <div>
+              <div class="arsenal-top">
+                <div class="arsenal-icon-box" style="background: rgba(239, 68, 68, 0.16); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);"><i class="fas fa-camera"></i></div>
+                <span class="arsenal-badge">Liputan Event</span>
+              </div>
+              <h3 class="arsenal-title">Event Photography</h3>
+              <p class="arsenal-desc">Penguasaan kamera profesional untuk event besar: menangkap momen penting, komposisi dinamis, pencahayaan panggung, dan liputan resmi.</p>
+            </div>
+            <div class="arsenal-meter">
+              <div class="arsenal-fill" style="width: 94%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Performance Metric Counters -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number gradient-text" data-target="3" data-suffix="+">3+</div>
+            <div class="stat-label">Tahun Pengalaman Desain</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number gradient-text" data-target="150" data-suffix="+">150+</div>
+            <div class="stat-label">Aset & Desain Selesai</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number gradient-text" data-target="4" data-suffix="+">4+</div>
+            <div class="stat-label">Instansi & Event Skala Besar</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number gradient-text" data-target="100" data-suffix="%">100%</div>
+            <div class="stat-label">Dedikasi & Kepuasan Klien</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Profil Diri & Identitas Profesional -->
+    <section class="section" id="tentang" style="background: rgba(14, 17, 25, 0.5);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-user-tie"></i> Executive Profile</span>
+          <h2 class="section-title">Profil & Ringkasan Diri</h2>
+          <p class="section-subtitle">Mengenal latar belakang, komitmen profesional, dan orientasi karir Wahyu Ardian di industri kreatif digital.</p>
         </div>
 
         <div class="about-grid">
+          <!-- Left: Professional Summary -->
           <div class="about-card">
-            <h3><i class="fas fa-user-astronaut gradient-text"></i> Profil & Ringkasan</h3>
-            <p style="margin-bottom: 1.25rem; color: var(--text-muted); line-height: 1.75;">
-              Saya adalah mahasiswa aktif di <strong>Universitas Lancang Kuning</strong> jurusan <strong>Bisnis Digital (Angkatan 2024)</strong>. 
-              Memiliki ketertarikan mendalam dan pengalaman langsung dalam industri kreatif sebagai <strong>Desain Grafis</strong> dan <strong>Visual Editor</strong>.
+            <h3><i class="fas fa-id-badge" style="color: var(--accent-color);"></i> Dedikasi & Filosofi Kreatif</h3>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem;">
+              Saya adalah mahasiswa <strong>Universitas Lancang Kuning (UNILAK)</strong> angkatan 2024 program studi <strong>Bisnis Digital</strong>, yang telah aktif menekuni dunia <strong>Desain Grafis</strong> dan <strong>Editing Visual</strong> sejak tahun 2021.
             </p>
-            <p style="color: var(--text-muted); line-height: 1.75;">
-              Saya telah berkecimpung dalam dunia visual mulai dari percetakan fisik (Family Printing), produksi konten visual digital (CMB MEDIA), hingga fotografi acara resmi berskala regional (PGRI Riau Porsenijar 2026 dan Wisuda UNILAK). Kombinasi antara estetika visual dan pemahaman strategi bisnis digital menjadi nilai tambah dalam setiap proyek yang saya kerjakan.
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.5rem;">
+              Pengalaman kerja saya ditempa melalui industri percetakan nyata di <strong>Family Printing</strong>, agensi kreatif digital di <strong>CMB MEDIA</strong>, serta dipercaya sebagai fotografer liputan resmi dalam perhelatan akbar <strong>Porsenijar PGRI Provinsi Riau 2026</strong> dan wisuda Universitas Lancang Kuning.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85;">
+              Saya percaya bahwa desain visual yang hebat adalah perpaduan harmonis antara estetika yang memikat mata dan strategi komunikasi yang efektif bagi bisnis.
             </p>
           </div>
 
+          <!-- Right: Official Info Card -->
           <div class="about-card">
-            <h3><i class="fas fa-address-card gradient-cyan"></i> Informasi Kontak & Domisili</h3>
+            <h3><i class="fas fa-address-card" style="color: var(--accent-color);"></i> Informasi Resmi</h3>
             <ul class="info-list">
               <li class="info-item">
-                <span class="info-label"><i class="fas fa-map-marker-alt"></i> Domisili</span>
-                <span class="info-val">PT. Bina Pitri, Kab. Kampar, Prov. Riau</span>
+                <span class="info-label"><i class="fas fa-signature"></i> Nama Lengkap</span>
+                <span class="info-val">Wahyu Ardian</span>
               </li>
               <li class="info-item">
-                <span class="info-label"><i class="fas fa-graduation-cap"></i> Kampus</span>
+                <span class="info-label"><i class="fas fa-map-pin"></i> Domisili</span>
+                <span class="info-val">PT. Bina Pitri, Kampar, Riau</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label"><i class="fas fa-university"></i> Universitas</span>
                 <span class="info-val">Universitas Lancang Kuning</span>
               </li>
               <li class="info-item">
-                <span class="info-label"><i class="fas fa-envelope"></i> Email</span>
+                <span class="info-label"><i class="fas fa-chart-line"></i> Program Studi</span>
+                <span class="info-val">Bisnis Digital (Angkatan 2024)</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label"><i class="fas fa-shield"></i> Karakter Spesialis</span>
+                <span class="info-val" style="color: var(--accent-color);">Exp Lane (Disiplin & Ketahanan)</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label"><i class="fas fa-envelope"></i> Email Resmi</span>
                 <span class="info-val">
-                  <a href="mailto:Wahyuofficial280803@gmail.com" style="color: inherit; text-decoration: none;">Wahyuofficial280803@gmail.com</a>
-                  <button class="copy-btn" onclick="copyToClipboard('Wahyuofficial280803@gmail.com', 'Email berhasil disalin!')" title="Salin Email">
-                    <i class="far fa-copy"></i>
+                  <span style="font-size: 0.9rem;">Wahyuofficial280803@gmail.com</span>
+                  <button type="button" class="copy-btn" onclick="copyToClipboard('Wahyuofficial280803@gmail.com', 'Email')" title="Salin Email">
+                    <i class="fas fa-copy"></i>
                   </button>
                 </span>
               </li>
               <li class="info-item">
                 <span class="info-label"><i class="fab fa-whatsapp"></i> WhatsApp</span>
                 <span class="info-val">
-                  083832412105
-                  <button class="copy-btn" onclick="copyToClipboard('083832412105', 'Nomor WhatsApp berhasil disalin!')" title="Salin Nomor">
-                    <i class="far fa-copy"></i>
+                  <span>083832412105</span>
+                  <button type="button" class="copy-btn" onclick="copyToClipboard('083832412105', 'Nomor WhatsApp')" title="Salin Nomor WhatsApp">
+                    <i class="fas fa-copy"></i>
                   </button>
                 </span>
-              </li>
-              <li class="info-item">
-                <span class="info-label"><i class="fas fa-briefcase"></i> Status Pekerjaan</span>
-                <span class="info-val" style="color: var(--accent-emerald);">Terbuka untuk Freelance & Full-time</span>
               </li>
             </ul>
           </div>
@@ -222,80 +405,80 @@
       </div>
     </section>
 
-    <!-- 3. Experience Section -->
+    <!-- 8. Pengalaman Kerja & Kepanitiaan -->
     <section class="section" id="pengalaman">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Perjalanan Karir</span>
+          <span class="section-tag"><i class="fas fa-briefcase"></i> Track Record</span>
           <h2 class="section-title">Pengalaman Kerja & Kepanitiaan</h2>
-          <p class="section-subtitle">Rekam jejak kontribusi dalam dunia desain grafis, editing visual, dan dokumentasi media.</p>
+          <p class="section-subtitle">Rekam jejak kontribusi profesional dalam dunia kerja, agensi media, dan organisasi resmi.</p>
         </div>
 
         <div class="timeline">
-          <!-- Item 1: Panitia PGRI Riau -->
+          <!-- Pengalaman 1: Porsenijar PGRI Prov Riau 2026 -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Photographer Media Acara Porsenijar</h3>
-                <span class="timeline-badge">2026</span>
+                <h3 class="timeline-role">Photographer Media Acara Porsenijar 2026</h3>
+                <span class="timeline-badge"><i class="fas fa-star"></i> EVENT PROVINSI</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-award"></i> Panitia PGRI Provinsi Riau
+                <i class="fas fa-flag"></i> Panitia PGRI Provinsi Riau | 2026
               </div>
               <p class="timeline-desc">
-                Bertanggung jawab penuh atas dokumentasi visual dan peliputan media pada perhelatan akbar Pekan Olahraga dan Seni (Porsenijar) PGRI Provinsi Riau 2026. Menghasilkan arsip foto berkualitas tinggi untuk publikasi pers, media sosial, dan materi dokumentasi resmi.
+                Bertanggung jawab penuh dalam meliput dan mendokumentasikan rangkaian kegiatan akbar Pekan Olahraga dan Seni Tenaga Kependidikan (Porsenijar) tingkat Provinsi Riau. Menghasilkan arsip foto berkualitas tinggi, kurasi visual cepat untuk media publikasi sosial media, serta konten dokumentasi resmi panitia.
               </p>
             </div>
           </div>
 
-          <!-- Item 2: Panitia Wisuda UNILAK -->
+          <!-- Pengalaman 2: Panitia Wisuda UNILAK -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Photographer & Tim Dokumentasi</h3>
-                <span class="timeline-badge">Periode Wisuda</span>
+                <h3 class="timeline-role">Photographer Media Wisuda</h3>
+                <span class="timeline-badge"><i class="fas fa-graduation-cap"></i> RESMI KAMPUS</span>
               </div>
               <div class="timeline-org">
                 <i class="fas fa-university"></i> Panitia Wisuda Universitas Lancang Kuning
               </div>
               <p class="timeline-desc">
-                Mengemban tugas sebagai fotografer prosesi wisuda. Menangkap momen penting pimpinan universitas, para wisudawan, dan tamu kehormatan dengan standar komposisi visual yang rapi dan profesional.
+                Bertugas dalam tim dokumentasi visual untuk mengabadikan momen bersejarah prosesi kelulusan wisudawan/wisudawati Universitas Lancang Kuning. Menangani pengambilan foto portrait, liputan panggung kehormatan senat universitas, serta pengolahan visual pasca-acara secara profesional.
               </p>
             </div>
           </div>
 
-          <!-- Item 3: CMB MEDIA -->
+          <!-- Pengalaman 3: CMB MEDIA -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Desain Grafis & Editing Visual</h3>
-                <span class="timeline-badge">2022 - 2024</span>
+                <h3 class="timeline-role">Desain Grafis & Visual Editor</h3>
+                <span class="timeline-badge"><i class="fas fa-building"></i> AGENSI DIGITAL</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-building"></i> CMB MEDIA
+                <i class="fas fa-briefcase"></i> CMB MEDIA | 2022 – 2024 (2 Tahun)
               </div>
               <p class="timeline-desc">
-                Menjalankan peran krusial dalam perancangan materi editing visual digital untuk berbagai kebutuhan media dan promosi. Mengembangkan aset grafis media sosial, banner kampanye digital, infografis, dan penyelarasan tone warna (color grading) untuk konten multimedia.
+                Berperan sebagai kreator visual inti yang merancang berbagai materi branding, feed promosi digital, konten multimedia, video promosi berdurasi pendek, serta aset visual periklanan klien dengan konsep modern, eye-catching, dan relevan dengan tren visual terkini.
               </p>
             </div>
           </div>
 
-          <!-- Item 4: Family Printing -->
+          <!-- Pengalaman 4: Family Printing -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Desain Grafis & Operator Editing Visual</h3>
-                <span class="timeline-badge">2021 - 2022</span>
+                <h3 class="timeline-role">Desain Grafis & Layout Visual</h3>
+                <span class="timeline-badge"><i class="fas fa-print"></i> PERCETAKAN</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-print"></i> Family Printing
+                <i class="fas fa-industry"></i> Family Printing | 2021 – 2022 (1 Tahun)
               </div>
               <p class="timeline-desc">
-                Mengerjakan desain percetakan komersial meliputi spanduk, banner, baliho, kartu nama, brosur, stiker kemasan, dan media cetak lainnya. Berkomunikasi langsung dengan klien untuk menerjemahkan kebutuhan brand ke dalam visual yang siap cetak (pre-press color management).
+                Bertugas mengeksekusi kebutuhan desain percetakan komersial secara langsung, mulai dari layout spanduk outdoor, baliho, kartu nama, brosur, banner display, hingga koreksi warna CMYK pra-cetak guna menjamin mutu cetak tajam 300 DPI tanpa cacat produksi.
               </p>
             </div>
           </div>
@@ -303,97 +486,97 @@
       </div>
     </section>
 
-    <!-- 4. Education Section -->
-    <section class="section" id="pendidikan">
+    <!-- 9. Riwayat Pendidikan Terstruktur -->
+    <section class="section" id="pendidikan" style="background: rgba(14, 17, 25, 0.5);">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Akademik & Studi</span>
+          <span class="section-tag"><i class="fas fa-graduation-cap"></i> Academic Pathway</span>
           <h2 class="section-title">Riwayat Pendidikan</h2>
-          <p class="section-subtitle">Fondasi pendidikan formal yang membentuk pola pikir strategis dan kreatif.</p>
+          <p class="section-subtitle">Jejak pendidikan formal dan vokasi terapan yang membentuk fondasi intelektual serta keahlian praktis.</p>
         </div>
 
         <div class="timeline">
-          <!-- UNILAK -->
+          <!-- Pendidikan 1: UNILAK -->
           <div class="timeline-item">
-            <div class="timeline-dot"></div>
+            <div class="timeline-dot" style="border-color: #10b981;"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">S1 - Bisnis Digital</h3>
-                <span class="timeline-badge">Angkatan 2024 - Sekarang</span>
+                <h3 class="timeline-role">Universitas Lancang Kuning (UNILAK)</h3>
+                <span class="timeline-badge" style="background: rgba(16, 185, 129, 0.16); color: #34d399; border-color: rgba(16, 185, 129, 0.35);">AKTIF // ANGKATAN 2024</span>
               </div>
-              <div class="timeline-org">
-                <i class="fas fa-graduation-cap"></i> Universitas Lancang Kuning
+              <div class="timeline-org" style="color: #34d399;">
+                <i class="fas fa-chart-pie"></i> S1 Bisnis Digital
               </div>
               <p class="timeline-desc">
-                Fokus mendalami transformasi digital, pemasaran digital (digital marketing), strategi e-commerce, analisis data bisnis, dan integrasi aset visual dalam ekosistem bisnis modern.
+                Mempelajari integrasi antara ekosistem bisnis modern, pemasaran digital, perancangan antarmuka pengguna, strategi konten visual komersial, serta analitika bisnis berbasis data di era teknologi 4.0.
               </p>
             </div>
           </div>
 
-          <!-- ICC -->
+          <!-- Pendidikan 2: ICC -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Diploma 1 (D1)</h3>
-                <span class="timeline-badge">Lulusan D1</span>
+                <h3 class="timeline-role">International Career Collage (ICC)</h3>
+                <span class="timeline-badge">LULUS DIPLOMA 1</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-certificate"></i> International Career College (ICC)
+                <i class="fas fa-award"></i> Program Diploma 1 (D1)
               </div>
               <p class="timeline-desc">
-                Menyelesaikan program studi kejuruan terapan untuk pengembangan kompetensi kerja profesional dan kesiapan industri karir.
+                Pendidikan vokasi terapan yang mematangkan keahlian praktis, kedisiplinan kerja, etos profesional, serta dasar-dasar operasional industri karir modern.
               </p>
             </div>
           </div>
 
-          <!-- SMAN 1 Tapung Hilir -->
+          <!-- Pendidikan 3: SMAN 1 Tapung Hilir -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Sekolah Menengah Atas (SMA)</h3>
-                <span class="timeline-badge">Alumni</span>
+                <h3 class="timeline-role">SMAN 1 Tapung Hilir</h3>
+                <span class="timeline-badge">SEKOLAH MENENGAH ATAS</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-school"></i> SMAN 1 Tapung Hilir
+                <i class="fas fa-school"></i> Sekolah Menengah Atas
               </div>
               <p class="timeline-desc">
-                Pendidikan menengah atas dengan keaktifan dalam kegiatan ekstrakurikuler serta eksplorasi awal minat di dunia multimedia dan seni visual.
+                Membangun karakter kepemimpinan, kemampuan kerja sama tim, komunikasi publik, serta mulai aktif mengeksplorasi minat dalam seni visual dan multimedia.
               </p>
             </div>
           </div>
 
-          <!-- SMPN 3 Tapung Hilir -->
+          <!-- Pendidikan 4: SMPN 3 Tapung Hilir -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Sekolah Menengah Pertama (SMP)</h3>
-                <span class="timeline-badge">Alumni</span>
+                <h3 class="timeline-role">SMPN 3 Tapung Hilir</h3>
+                <span class="timeline-badge">SEKOLAH MENENGAH PERTAMA</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-school"></i> SMPN 3 Tapung Hilir
+                <i class="fas fa-school"></i> Sekolah Menengah Pertama
               </div>
               <p class="timeline-desc">
-                Menyelesaikan pendidikan dasar lanjutan tingkat pertama.
+                Fase penanaman disiplin belajar dan keterlibatan aktif dalam kegiatan ekstrakurikuler sekolah.
               </p>
             </div>
           </div>
 
-          <!-- SDN 026 Kotagaro -->
+          <!-- Pendidikan 5: SDN 026 Kotagaro -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-meta">
-                <h3 class="timeline-role">Sekolah Dasar (SD)</h3>
-                <span class="timeline-badge">Alumni</span>
+                <h3 class="timeline-role">SDN 026 Kotagaro</h3>
+                <span class="timeline-badge">SEKOLAH DASAR</span>
               </div>
               <div class="timeline-org">
-                <i class="fas fa-child"></i> SDN 026 Kotagaro
+                <i class="fas fa-graduation-cap"></i> Sekolah Dasar
               </div>
               <p class="timeline-desc">
-                Menyelesaikan pendidikan tingkat sekolah dasar dengan baik.
+                Pondasi awal pendidikan karakter, kejujuran, dan semangat belajar tinggi sejak usia dini.
               </p>
             </div>
           </div>
@@ -401,280 +584,241 @@
       </div>
     </section>
 
-    <!-- 5. Skills Section -->
+    <!-- 10. Matriks Keahlian: Hard & Soft Skills -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Kompetensi & Kemampuan</span>
-          <h2 class="section-title">Keahlian & Kemampuan</h2>
-          <p class="section-subtitle">Perpaduan keahlian teknis (Hard Skills) dan kemampuan interpersonal (Soft Skills).</p>
+          <span class="section-tag"><i class="fas fa-layer-group"></i> Core Competencies</span>
+          <h2 class="section-title">Matriks Keahlian Profesional</h2>
+          <p class="section-subtitle">Kombinasi antara kompetensi teknis desain grafis dan ketangguhan mentalitas kerja tim.</p>
         </div>
 
         <div class="skills-grid">
-          <!-- Hard Skills -->
+          <!-- Hard Skills (Kompetensi Teknis) -->
           <div class="skill-category">
             <h3 class="skill-cat-title">
-              <i class="fas fa-laptop-code gradient-text"></i> Hard Skills (Teknis)
+              <i class="fas fa-sliders" style="color: var(--accent-color);"></i>
+              <span>Hard Skills (Keahlian Teknis)</span>
             </h3>
             <div class="skill-tags">
-              <div class="skill-tag featured">
-                <i class="fas fa-palette"></i> Desain Grafis (Graphic Design)
-              </div>
-              <div class="skill-tag featured">
-                <i class="fas fa-film"></i> Editing Visual & Motion
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-camera"></i> Fotografi & Liputan Acara
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-print"></i> Layout Cetak & Pre-Press
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-sliders-h"></i> Color Grading & Retouching
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-chart-line"></i> Dasar Bisnis Digital & Marketing
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-ad"></i> Pembuatan Banner & Aset Iklan
-              </div>
-              <div class="skill-tag gaming" title="Spesialisasi Exp Lane: High Decision Making, Map Awareness & Team Synergy">
-                <i class="fas fa-shield-alt"></i> Exp Lane Specialist (Esports Strategy)
-              </div>
+              <span class="skill-tag featured"><i class="fas fa-pen-nib"></i> Desain Grafis</span>
+              <span class="skill-tag featured"><i class="fas fa-film"></i> Visual Editing</span>
+              <span class="skill-tag featured"><i class="fas fa-shield"></i> Exp Lane Specialist</span>
+              <span class="skill-tag"><i class="fas fa-camera"></i> Event Photography</span>
+              <span class="skill-tag"><i class="fas fa-bezier-curve"></i> Vector Illustration</span>
+              <span class="skill-tag"><i class="fas fa-palette"></i> Photo Color Grading</span>
+              <span class="skill-tag"><i class="fas fa-bullhorn"></i> Social Media Content Design</span>
+              <span class="skill-tag"><i class="fas fa-print"></i> Layout Cetak & CMYK Separation</span>
+              <span class="skill-tag"><i class="fas fa-layer-group"></i> Branding & Visual Identity</span>
+              <span class="skill-tag"><i class="fas fa-mobile-screen"></i> Video Reels & Motion Sync</span>
             </div>
           </div>
 
-          <!-- Soft Skills -->
+          <!-- Soft Skills (Karakter & Kepemimpinan) -->
           <div class="skill-category">
             <h3 class="skill-cat-title">
-              <i class="fas fa-users gradient-cyan"></i> Soft Skills (Karakter & Kerja)
+              <i class="fas fa-handshake" style="color: var(--accent-color);"></i>
+              <span>Soft Skills (Karakter & Sinergi)</span>
             </h3>
             <div class="skill-tags">
-              <div class="skill-tag featured">
-                <i class="fas fa-handshake"></i> Team Work & Solidaritas Tim
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-clock"></i> Manajemen Waktu & Ketepatan Deadline
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-lightbulb"></i> Pemikiran Kreatif & Ideasi Konsep
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-comments"></i> Komunikasi Visual & Interpersonal
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-bullseye"></i> Problem Solving di Lapangan
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-sync-alt"></i> Cepat Beradaptasi & Mau Terus Belajar
-              </div>
-              <div class="skill-tag">
-                <i class="fas fa-crosshairs"></i> Fokus Tinggi di Bawah Tekanan
-              </div>
+              <span class="skill-tag featured"><i class="fas fa-people-group"></i> Teamwork Solid</span>
+              <span class="skill-tag"><i class="fas fa-clock"></i> Manajemen Waktu Proyek</span>
+              <span class="skill-tag"><i class="fas fa-puzzle-piece"></i> Problem Solving Kreatif</span>
+              <span class="skill-tag"><i class="fas fa-comments"></i> Komunikasi Visual & Klien</span>
+              <span class="skill-tag"><i class="fas fa-lightbulb"></i> Berpikir Konseptual</span>
+              <span class="skill-tag"><i class="fas fa-eye"></i> Perhatian pada Detail (Attention to Detail)</span>
+              <span class="skill-tag"><i class="fas fa-rotate"></i> Adaptasi Cepat Terhadap Tren</span>
+              <span class="skill-tag"><i class="fas fa-check-double"></i> Etos Kerja & Integritas Tinggi</span>
+              <span class="skill-tag gaming"><i class="fas fa-gamepad"></i> Mental Tangguh & Disiplin Exp Lane</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. Portfolio Showcase Section -->
+    <!-- 11. Audience Station QR Code & Galeri Portofolio -->
     <section class="section" id="portofolio">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Showcase & Hasil Kerja</span>
-          <h2 class="section-title">Galeri Portofolio & Karya</h2>
-          <p class="section-subtitle">Koleksi karya dokumentasi, desain grafis, editing visual, dan pengalaman media.</p>
+          <span class="section-tag"><i class="fas fa-qrcode"></i> Audience Station</span>
+          <h2 class="section-title">Portofolio & Stasiun QR Interaktif</h2>
+          <p class="section-subtitle">Pindai barcode interaktif di bawah menggunakan kamera ponsel Anda atau telusuri galeri karya terpilih.</p>
         </div>
 
-        <!-- QR Code Interactive Showcase -->
-        <div class="qr-showcase-box">
-          <div class="qr-showcase-content">
-            <span class="qr-badge"><i class="fas fa-qrcode"></i> Akses Cepat Audiens & Rekruter</span>
-            <h3 class="qr-title">Scan QR Code untuk Melihat Portofolio & Karya</h3>
+        <!-- SPECIAL QR CODE AUDIENCE STATION -->
+        <div class="qr-station-box">
+          <div class="qr-station-info">
+            <div class="qr-badge">
+              <i class="fas fa-camera"></i>
+              <span>STASIUN PINDAI PORTOFOLIO AUDIENS</span>
+            </div>
+            <h3 class="qr-title">Pindai QR Code untuk Membuka Portofolio Lengkap</h3>
             <p class="qr-desc">
-              Pindai kode QR di samping menggunakan kamera smartphone Anda untuk mengakses langsung seluruh direktori karya visual, proyek editing, dan sertifikasi Wahyu Ardian.
+              Audiens, calon klien, dan perekrut dapat langsung mengarahkan kamera smartphone ke barcode di samping untuk menjelajahi galeri portofolio lengkap berisi arsip karya desain grafis, visual editing, dan foto dokumentasi event Wahyu Ardian.
             </p>
+
             <div class="qr-steps">
               <div class="qr-step-item">
-                <div class="qr-step-num">1</div>
-                <div>Buka aplikasi <strong>Kamera</strong> atau <strong>Google Lens / Pemindai QR</strong> di HP Anda</div>
+                <span class="qr-step-num">1</span>
+                <span>Buka aplikasi Kamera atau Pemindai QR di ponsel Anda.</span>
               </div>
               <div class="qr-step-item">
-                <div class="qr-step-num">2</div>
-                <div>Arahkan kamera ke gambar <strong>QR Code</strong> di samping</div>
+                <span class="qr-step-num">2</span>
+                <span>Arahkan kamera ke barcode di samping kanan.</span>
               </div>
               <div class="qr-step-item">
-                <div class="qr-step-num">3</div>
-                <div>Ketuk tautan / notifikasi yang muncul di layar untuk membuka proyek</div>
+                <span class="qr-step-num">3</span>
+                <span>Ketuk tautan yang muncul untuk membuka portofolio interaktif secara langsung.</span>
               </div>
             </div>
+
             <div class="qr-actions">
-              <button class="btn btn-primary" onclick="openQrModal()">
-                <i class="fas fa-expand-arrows-alt"></i> Perbesar QR Code
-              </button>
-              <a href="assets/images/qr-portfolio.png" download="QR-Code-Portofolio-Wahyu-Ardian.png" class="btn btn-outline">
-                <i class="fas fa-download"></i> Simpan Gambar QR
+              <a href="https://wa.me/6283832412105?text=Halo%20Wahyu,%20saya%20sudah%20melihat%20portofolio%20Anda" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
               </a>
+              <button type="button" class="btn btn-outline" onclick="copyToClipboard(window.location.href, 'Tautan Portofolio')">
+                <i class="fas fa-share-nodes"></i> Bagikan Tautan
+              </button>
             </div>
           </div>
-          <div class="qr-showcase-visual">
-            <div class="qr-card">
-              <div class="qr-scan-line"></div>
-              <img src="assets/images/qr-portfolio.png" alt="Scan QR Code Portofolio Wahyu Ardian" class="qr-image">
-              <div class="qr-card-footer">
-                <i class="fas fa-camera"></i> SCAN DENGAN KAMERA HP
+
+          <!-- Interactive QR Card Visual -->
+          <div class="qr-visual-wrap">
+            <div class="qr-interactive-card" title="Klik untuk memperbesar QR Portofolio">
+              <div class="qr-laser-line"></div>
+              <img src="assets/images/qr-portfolio.png" alt="QR Code Portofolio Wahyu Ardian" class="qr-code-img" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fgithub.com%2Fwahyuofficial280803-cmd%2FCV-Wahyu-Ardian';">
+              <div class="qr-footer-caption">
+                <i class="fas fa-qrcode"></i>
+                <span>SCAN ME // WAHYU ARDIAN</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Filter Buttons -->
+        <!-- Filter Portofolio -->
         <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">Semua Karya</button>
-          <button class="filter-btn" data-filter="qr">Scan QR Code</button>
-          <button class="filter-btn" data-filter="design">Desain Grafis</button>
-          <button class="filter-btn" data-filter="photo">Fotografi Acara</button>
-          <button class="filter-btn" data-filter="editing">Visual Editing</button>
-          <button class="filter-btn" data-filter="esports">Esports & Strategy</button>
+          <button type="button" class="filter-btn active" data-filter="all">Semua Karya</button>
+          <button type="button" class="filter-btn" data-filter="branding">Branding & Desain</button>
+          <button type="button" class="filter-btn" data-filter="editing">Visual Editing</button>
+          <button type="button" class="filter-btn" data-filter="event">Dokumentasi Event</button>
+          <button type="button" class="filter-btn" data-filter="cetak">Percetakan</button>
         </div>
 
-        <!-- Portfolio Items Grid -->
+        <!-- Portfolio Cards Grid -->
         <div class="portfolio-grid">
-          <!-- Card 0: Pinned QR Code Showcase Card -->
-          <div class="portfolio-card" data-category="qr">
-            <div class="portfolio-thumb" style="display: flex; align-items: center; justify-content: center; background: #ffffff; padding: 1.25rem;">
-              <img src="assets/images/qr-portfolio.png" alt="Scan QR Code Portofolio & Proyek" style="max-height: 100%; width: auto; object-fit: contain;">
+          <!-- Karya 1: Porsenijar 2026 -->
+          <div class="portfolio-card" data-category="event editing">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80" alt="Dokumentasi Porsenijar PGRI Riau 2026">
               <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-expand-arrows-alt"></i> Perbesar QR Code</div>
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
               </div>
             </div>
             <div class="portfolio-body">
-              <div class="portfolio-cat">Akses Instan Audiens</div>
-              <h3 class="portfolio-title">QR Code Portofolio & Karya</h3>
-              <p class="portfolio-desc">
-                Pindai kode QR ini menggunakan smartphone untuk akses instan ke seluruh portofolio digital, sertifikasi, dan karya proyek Wahyu Ardian.
-              </p>
-            </div>
-          </div>
-          <!-- Card 1: Porsenijar 2026 -->
-          <div class="portfolio-card" data-category="photo">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-porsenijar.svg" alt="Dokumentasi Media Porsenijar 2026">
-              <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <div class="portfolio-cat">Fotografi Acara</div>
-              <h3 class="portfolio-title">Dokumentasi Media Porsenijar 2026</h3>
-              <p class="portfolio-desc">
-                Peliputan resmi Pekan Olahraga dan Seni PGRI se-Provinsi Riau 2026. Menangkap momen pertandingan, ekspresi atlet, dan seremonial pembukaan.
-              </p>
+              <span class="portfolio-cat">Dokumentasi Event // Liputan Resmi</span>
+              <h4 class="portfolio-title">Media Liputan Porsenijar PGRI Riau 2026</h4>
+              <p class="portfolio-desc">Dokumentasi fotografi panggung dan kompetisi olahraga guru se-Provinsi Riau serta kurasi konten visual cepat untuk media publikasi sosial media resmi.</p>
             </div>
           </div>
 
-          <!-- Card 2: Wisuda UNILAK -->
-          <div class="portfolio-card" data-category="photo">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-wisuda.svg" alt="Dokumentasi Wisuda UNILAK">
+          <!-- Karya 2: Wisuda UNILAK -->
+          <div class="portfolio-card" data-category="event">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop&q=80" alt="Wisuda Universitas Lancang Kuning">
               <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
               </div>
             </div>
             <div class="portfolio-body">
-              <div class="portfolio-cat">Fotografi Acara</div>
-              <h3 class="portfolio-title">Dokumentasi Wisuda UNILAK</h3>
-              <p class="portfolio-desc">
-                Fotografi resmi prosesi wisudawan dan pimpinan kampus Universitas Lancang Kuning dengan tata pencahayaan dan komposisi profesional.
-              </p>
+              <span class="portfolio-cat">Fotografi Resmi // UNILAK</span>
+              <h4 class="portfolio-title">Dokumentasi Wisuda Universitas Lancang Kuning</h4>
+              <p class="portfolio-desc">Fotografi sakral prosesi wisuda mahasiswa UNILAK, mencakup liputan protokoler senat, portrait wisudawan berprestasi, dan editing warna elegan.</p>
             </div>
           </div>
 
-          <!-- Card 3: CMB MEDIA -->
+          <!-- Karya 3: CMB MEDIA Branding -->
+          <div class="portfolio-card" data-category="branding editing">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&auto=format&fit=crop&q=80" alt="CMB Media Visual Content">
+              <div class="portfolio-overlay">
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-cat">Branding & Media // CMB Media</span>
+              <h4 class="portfolio-title">Desain Kampanye Promosi Digital CMB Media</h4>
+              <p class="portfolio-desc">Rangkaian feed Instagram, banner promosi dinamis, dan grafis promosi komersial dengan tata letak modern dan tipografi yang menarik perhatian.</p>
+            </div>
+          </div>
+
+          <!-- Karya 4: Family Printing Percetakan -->
+          <div class="portfolio-card" data-category="cetak branding">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=80" alt="Family Printing Media Cetak">
+              <div class="portfolio-overlay">
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <span class="portfolio-cat">Percetakan Komersial // Family Printing</span>
+              <h4 class="portfolio-title">Layout Spanduk & Media Cetak Resolusi Tinggi</h4>
+              <p class="portfolio-desc">Pengerjaan tata letak spanduk promosi outdoor, standing banner, dan brosur bisnis berstandar industri dengan resolusi 300 DPI warna CMYK presisi.</p>
+            </div>
+          </div>
+
+          <!-- Karya 5: Video Editing & Motion -->
           <div class="portfolio-card" data-category="editing">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-cmb.svg" alt="CMB Media Visual Editing">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&auto=format&fit=crop&q=80" alt="Visual Motion Video Editing">
               <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
               </div>
             </div>
             <div class="portfolio-body">
-              <div class="portfolio-cat">Visual Editing</div>
-              <h3 class="portfolio-title">CMB Media Digital Campaigns</h3>
-              <p class="portfolio-desc">
-                Editing konten visual dan desain promo digital selama 2022-2024 untuk mendongkrak engagement dan visual branding.
-              </p>
+              <span class="portfolio-cat">Motion & Reels // Visual Editing</span>
+              <h4 class="portfolio-title">Short-Form Video & Audio Synchronization</h4>
+              <p class="portfolio-desc">Editing video vertikal untuk TikTok dan Instagram Reels dengan pemilihan musik berirama, beat matching, transisi halus, dan animasi tipografi.</p>
             </div>
           </div>
 
-          <!-- Card 4: Family Printing -->
-          <div class="portfolio-card" data-category="design">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-family.svg" alt="Family Printing Graphic Design">
+          <!-- Karya 6: Esports Exp Lane Strategy -->
+          <div class="portfolio-card" data-category="branding">
+            <div class="portfolio-thumb-box">
+              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&auto=format&fit=crop&q=80" alt="Esports Gaming & Strategy">
               <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
+                <span class="view-btn"><i class="fas fa-magnifying-glass-plus"></i> Lihat Detail</span>
               </div>
             </div>
             <div class="portfolio-body">
-              <div class="portfolio-cat">Desain Grafis & Cetak</div>
-              <h3 class="portfolio-title">Family Printing Publications</h3>
-              <p class="portfolio-desc">
-                Desain spanduk, banner, brosur, kartu nama, dan materi promosi fisik dengan akurasi warna pra-cetak (pre-press).
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5: Bisnis Digital UNILAK -->
-          <div class="portfolio-card" data-category="design">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-branding.svg" alt="Bisnis Digital & Brand Identity">
-              <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <div class="portfolio-cat">Branding & Bisnis Digital</div>
-              <h3 class="portfolio-title">Bisnis Digital & Brand Identity</h3>
-              <p class="portfolio-desc">
-                Penerapan konsep visual identity dan strategi digital marketing terpadu untuk kebutuhan brand modern.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 6: Exp Lane Esports Specialist -->
-          <div class="portfolio-card" data-category="esports">
-            <div class="portfolio-thumb">
-              <img src="assets/images/portfolio-esports.svg" alt="Exp Lane Strategy & Assets">
-              <div class="portfolio-overlay">
-                <div class="view-btn"><i class="fas fa-search-plus"></i> Pratinjau</div>
-              </div>
-            </div>
-            <div class="portfolio-body">
-              <div class="portfolio-cat">Esports & Gaming Strategy</div>
-              <h3 class="portfolio-title">Exp Lane Specialist & Gaming Asset</h3>
-              <p class="portfolio-desc">
-                Keahlian taktikal Exp Lane: disiplin laning, rotasi makro-mikro, ketenangan eksekusi clutch di bawah tekanan kompetisi.
-              </p>
+              <span class="portfolio-cat">Gaming Visual // Exp Lane Specialist</span>
+              <h4 class="portfolio-title">Desain Maskot & Banner Turnamen Esports</h4>
+              <p class="portfolio-desc">Pembuatan visual banner turnamen Mobile Legends dengan nuansa futuristik, mencerminkan ketangguhan mental seorang pejuang Exp Lane.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. Call To Action / Contact Section -->
-    <section class="section" id="kontak">
+    <!-- 12. Executive Contact Banner -->
+    <section class="section" id="kontak" style="padding-top: 40px;">
       <div class="container">
         <div class="contact-banner">
-          <h2>Tertarik Bekerjasama?</h2>
+          <h2>Siap Menjalin Kolaborasi Kreatif?</h2>
           <p>
-            Saya siap membantu mewujudkan kebutuhan Desain Grafis, Editing Visual, maupun Dokumentasi Fotografi untuk proyek dan institusi Anda.
+            Mari wujudkan ide dan visi bisnis Anda menjadi karya desain grafis berkualitas tinggi, estetis, dan berdampak nyata.
           </p>
+
           <div class="contact-banner-actions">
-            <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20tertarik%20bekerjasama%20untuk%20proyek%20desain/editing." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 0.9rem 2rem;">
-              <i class="fab fa-whatsapp"></i> Hubungi WhatsApp (083832412105)
+            <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20tertarik%20bekerja%20sama%20dengan%20Anda" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i> Chat WhatsApp (083832412105)
             </a>
-            <a href="mailto:Wahyuofficial280803@gmail.com" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.9rem 2rem;">
-              <i class="fas fa-paper-plane"></i> Kirim Email Sekarang
+
+            <a href="mailto:Wahyuofficial280803@gmail.com" class="btn btn-primary">
+              <i class="fas fa-envelope"></i> Kirim Email Resmi
+            </a>
+
+            <a href="https://www.instagram.com/wahyu_ardian28?exln=eHM0MzFoYnI4aWNo" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fab fa-instagram"></i> Instagram DM
             </a>
           </div>
         </div>
@@ -682,55 +826,62 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- 13. Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-socials">
-        <a href="https://www.instagram.com/wahyu_ardian28?exln=eHM0MzFoYnI4aWNo" target="_blank" rel="noopener noreferrer" class="footer-link" title="Instagram">
+        <a href="https://www.instagram.com/wahyu_ardian28?exln=eHM0MzFoYnI4aWNo" target="_blank" rel="noopener noreferrer" class="footer-link" title="Instagram Wahyu Ardian">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.tiktok.com/@yuu15208?_r=1&_t=ZS-9B6CZ8DV4dQ" target="_blank" rel="noopener noreferrer" class="footer-link" title="TikTok">
+        <a href="https://www.tiktok.com/@yuu15208?_r=1&_t=ZS-9B6CZ8DV4dQ" target="_blank" rel="noopener noreferrer" class="footer-link" title="TikTok @yuu15208">
           <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://www.facebook.com/share/1SCBwb3WPF/" target="_blank" rel="noopener noreferrer" class="footer-link" title="Facebook">
-          <i class="fab fa-facebook-f"></i>
+        <a href="https://www.facebook.com/share/1SCBwb3WPF/" target="_blank" rel="noopener noreferrer" class="footer-link" title="Facebook Wahyu Ardian">
+          <i class="fab fa-facebook"></i>
         </a>
-        <a href="mailto:Wahyuofficial280803@gmail.com" class="footer-link" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://wa.me/6283832412105" target="_blank" rel="noopener noreferrer" class="footer-link" title="WhatsApp">
+        <a href="https://wa.me/6283832412105" target="_blank" rel="noopener noreferrer" class="footer-link" title="WhatsApp 083832412105">
           <i class="fab fa-whatsapp"></i>
         </a>
+        <a href="mailto:Wahyuofficial280803@gmail.com" class="footer-link" title="Email Wahyu Ardian">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
-      <p>&copy; 2026 Wahyu Ardian. All Rights Reserved. Graphic Designer & Visual Editor • Kampar, Riau.</p>
+
+      <p style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">
+        &copy; 2026 Wahyu Ardian. Professional Graphic Designer & Visual Editor.
+      </p>
+      <p style="font-size: 0.86rem; color: var(--text-muted);">
+        Universitas Lancang Kuning // Bisnis Digital '24 // PT. Bina Pitri, Kampar, Riau. All Rights Reserved.
+      </p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Action Button -->
-  <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20desain/editing." target="_blank" rel="noopener noreferrer" class="floating-wa" title="Chat via WhatsApp">
-    <span class="floating-wa-badge">1</span>
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/6283832412105?text=Halo%20Wahyu%20Ardian,%20saya%20melihat%20website%20CV%20Anda" class="floating-wa" target="_blank" rel="noopener noreferrer" title="Chat WhatsApp Langsung">
     <i class="fab fa-whatsapp"></i>
+    <span class="floating-wa-badge">1</span>
   </a>
 
-  <!-- Portfolio Modal (Lightbox) -->
-  <div class="modal" id="portfolio-modal">
+  <!-- Lightbox Modal for Portfolio & QR Code -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <button class="modal-close" id="modal-close" aria-label="Tutup Pratinjau">
-        <i class="fas fa-times"></i>
-      </button>
-      <img src="" alt="Pratinjau Karya" class="modal-img" id="modal-img">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Tutup Jendela Modal">&times;</button>
+      <img src="" alt="Detail Karya" class="modal-img" id="modal-img">
       <div class="modal-body">
-        <div class="portfolio-cat" id="modal-cat" style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.5rem;"></div>
-        <h3 id="modal-title" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.75rem; color: var(--text-main);"></h3>
-        <p id="modal-desc" style="color: var(--text-muted); line-height: 1.7; font-size: 0.95rem;"></p>
+        <span class="portfolio-cat" id="modal-cat">KATEGORI PROYEK</span>
+        <h3 class="portfolio-title" id="modal-title" style="margin-bottom: 0.85rem;">Judul Karya</h3>
+        <p class="portfolio-desc" id="modal-desc" style="font-size: 1rem; line-height: 1.8;">Deskripsi detail proyek...</p>
       </div>
     </div>
   </div>
 
-  <!-- Toast Element -->
-  <div class="toast" id="toast"></div>
+  <!-- Toast Notification Container -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+    <span>Notifikasi Studio</span>
+  </div>
 
-  <!-- JavaScript -->
+  <!-- Executive Studio Engine Script -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
